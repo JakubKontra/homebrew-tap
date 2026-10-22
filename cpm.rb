@@ -5,41 +5,57 @@
 class Cpm < Formula
   desc "Claude Profile Manager — manage multiple Claude Code accounts"
   homepage "https://github.com/jakubkontra/claude-profile-manager"
-  version "0.7.0"
+  version "0.8.0"
   license "MIT"
 
   on_macos do
     if Hardware::CPU.intel?
-      url "https://github.com/JakubKontra/claude-profile-manager/releases/download/v0.7.0/cpm_darwin_amd64"
-      sha256 "803a0df29d81250663970ca43b1d019ee76fdc367a51a395b22279501f2d321b"
+      url "https://github.com/JakubKontra/claude-profile-manager/releases/download/v0.8.0/cpm_darwin_amd64"
+      sha256 "165f78a2653df51d476d67f651a7304c3b11dd9cf796afd48798b48e3520d128"
 
       define_method(:install) do
         bin.install "cpm"
+        # cpm writes its own man pages; a failure must not break the install.
+        if quiet_system bin/"cpm", "docs", "--man", "man1"
+          man1.install Dir["man1/*.1"]
+        end
       end
     end
     if Hardware::CPU.arm?
-      url "https://github.com/JakubKontra/claude-profile-manager/releases/download/v0.7.0/cpm_darwin_arm64"
-      sha256 "3a27c696142f995a5d57dcd5db6bc8c9b7840df1c6bea296b5b3ea36bd830a9f"
+      url "https://github.com/JakubKontra/claude-profile-manager/releases/download/v0.8.0/cpm_darwin_arm64"
+      sha256 "479e8857eceafb021b24f4ed494f61756c0b6aa216a7b57b9e8ca9c691aedd22"
 
       define_method(:install) do
         bin.install "cpm"
+        # cpm writes its own man pages; a failure must not break the install.
+        if quiet_system bin/"cpm", "docs", "--man", "man1"
+          man1.install Dir["man1/*.1"]
+        end
       end
     end
   end
 
   on_linux do
     if Hardware::CPU.intel? && Hardware::CPU.is_64_bit?
-      url "https://github.com/JakubKontra/claude-profile-manager/releases/download/v0.7.0/cpm_linux_amd64"
-      sha256 "3f3c6ccbe3074d93ff2a343a32b86abff5075f6f84b3a32cea01076632f9d57d"
+      url "https://github.com/JakubKontra/claude-profile-manager/releases/download/v0.8.0/cpm_linux_amd64"
+      sha256 "45ea865b94b8f0dd5b949aa2c0e6cca5e031ea7b2ab99535967622b4830dcfa7"
       define_method(:install) do
         bin.install "cpm"
+        # cpm writes its own man pages; a failure must not break the install.
+        if quiet_system bin/"cpm", "docs", "--man", "man1"
+          man1.install Dir["man1/*.1"]
+        end
       end
     end
     if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/JakubKontra/claude-profile-manager/releases/download/v0.7.0/cpm_linux_arm64"
-      sha256 "847fa7e61b517163604c2fdb876b9808474ae77c22145f6a8598302d89e3f85d"
+      url "https://github.com/JakubKontra/claude-profile-manager/releases/download/v0.8.0/cpm_linux_arm64"
+      sha256 "f9f270ebde0c2e17ca980514ae50a2e67e59be32321f12399ac42f52d59e7a33"
       define_method(:install) do
         bin.install "cpm"
+        # cpm writes its own man pages; a failure must not break the install.
+        if quiet_system bin/"cpm", "docs", "--man", "man1"
+          man1.install Dir["man1/*.1"]
+        end
       end
     end
   end
