@@ -5,21 +5,21 @@
 class Cpm < Formula
   desc "Claude Profile Manager — manage multiple Claude Code accounts"
   homepage "https://github.com/jakubkontra/claude-profile-manager"
-  version "0.4.0"
+  version "0.5.0"
   license "MIT"
 
   on_macos do
     if Hardware::CPU.intel?
-      url "https://github.com/JakubKontra/claude-profile-manager/releases/download/v0.4.0/cpm_darwin_amd64"
-      sha256 "d4ae689d082b3eedc9189eb4a58e3a5bf98df5998c073620db7922d2fc06cb67"
+      url "https://github.com/JakubKontra/claude-profile-manager/releases/download/v0.5.0/cpm_darwin_amd64"
+      sha256 "6714e088f1a0a41251fd46dbebc36a4baef00c7e3cf07bca346e62adf8003814"
 
       define_method(:install) do
         bin.install "cpm"
       end
     end
     if Hardware::CPU.arm?
-      url "https://github.com/JakubKontra/claude-profile-manager/releases/download/v0.4.0/cpm_darwin_arm64"
-      sha256 "967b73a9bba346135a2e56b18f982b479a73a9e1da5abc1e9fc1af4b0beb4d8b"
+      url "https://github.com/JakubKontra/claude-profile-manager/releases/download/v0.5.0/cpm_darwin_arm64"
+      sha256 "e4a58cec126ee9f6ebf763eb3a1a0beadc2180e2b00cefc71a50a741aaab22b8"
 
       define_method(:install) do
         bin.install "cpm"
@@ -29,15 +29,15 @@ class Cpm < Formula
 
   on_linux do
     if Hardware::CPU.intel? && Hardware::CPU.is_64_bit?
-      url "https://github.com/JakubKontra/claude-profile-manager/releases/download/v0.4.0/cpm_linux_amd64"
-      sha256 "ae185801f945d833a2eefde34645fcc80b003922831b33cad88410d9f377ef5d"
+      url "https://github.com/JakubKontra/claude-profile-manager/releases/download/v0.5.0/cpm_linux_amd64"
+      sha256 "ac4855bd33a3d0a750346a59ff851374e0facfe65b7b0b5861ab787d110305ff"
       define_method(:install) do
         bin.install "cpm"
       end
     end
     if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/JakubKontra/claude-profile-manager/releases/download/v0.4.0/cpm_linux_arm64"
-      sha256 "784f4cd585ba6eb1035e3366b5e263450e03503a28faa47b4a49e479c33be2fc"
+      url "https://github.com/JakubKontra/claude-profile-manager/releases/download/v0.5.0/cpm_linux_arm64"
+      sha256 "b49f3ae80f45584329e0550ddb499f086e76e10395ea8d132cb775d60fb49df0"
       define_method(:install) do
         bin.install "cpm"
       end
